@@ -1,17 +1,28 @@
 <template>
     <div class="grid-container">
         <div class="grid-container-inside">
-            <tile></tile>
+            <div class="tile" v-for="c in companions" v-bind:key="c.id">
+                <div class="tile-inside">
+                    <img :src="`${c.imgSrc}`"/>
+                    <p>{{c.title}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-import Tile from './Tile'
+import { mapGetters } from 'vuex'
+
 export default {
+  computed: {
+    ...mapGetters({
+      companions: 'allCompanions'
+    })
+  },
   name: 'Grid',
-  components: {
-    Tile
+  created () {
+    this.$store.dispatch('getAllCompanions')
   }
 }
 </script>
@@ -20,5 +31,27 @@ export default {
     .grid-container {
         width: 80%;
         margin: 0 10%;
+    }
+
+    .tile {
+      height: 300px;
+    }
+
+    .tile-inside {
+        width: 25%;
+        padding: 20px;
+        margin: 0 2%;
+        float: left;
+        cursor: pointer;
+        border: 2px dotted #000;
+    }
+
+    .tile-inside img {
+        max-width: 250px;
+        max-height: 200px;
+    }
+
+    .tile-inside p {
+        font-size: 12px;
     }
 </style>

@@ -1,0 +1,5 @@
+export const RECEIVE_COMPANIONS = 'RECEIVE_COMPANIONS'
+
+export default {
+  RECEIVE_COMPANIONS
+}
