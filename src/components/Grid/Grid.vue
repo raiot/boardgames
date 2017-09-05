@@ -2,7 +2,7 @@
     <div class="grid-container">
         <div class="grid-container-inside">
             <div class="tile" v-for="c in companions" v-bind:key="c.id">
-                <div class="tile-inside">
+                <div class="tile-inside" v-on:click="navigate(c)">
                     <img :src="`${c.imgSrc}`"/>
                     <p>{{c.title}}</p>
                 </div>
@@ -13,6 +13,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import * as utils from '../../utils/url-sanitizer'
 
 export default {
   computed: {
@@ -23,6 +24,12 @@ export default {
   name: 'Grid',
   created () {
     this.$store.dispatch('getAllCompanions')
+  },
+  methods: {
+    navigate (companion) {
+      const sanitizedName = utils.sanitize(companion.title)
+      this.$router.push(`game/${companion.id}/${sanitizedName}`)
+    }
   }
 }
 </script>

@@ -1,9 +1,8 @@
 <template>
   <div class="home">
     <h3>{{headline}}</h3>
-
     <div class="option xs">
-      Please select one:
+      {{choice}}
     </div>
     <grid></grid>
   </div>
@@ -11,6 +10,7 @@
 
 <script>
 import Grid from '../Grid/Grid'
+
 export default {
   name: 'home',
   components: {
@@ -18,7 +18,8 @@ export default {
   },
   data () {
     return {
-      headline: 'Welcome to boardgame companions'
+      headline: this.$t('message.welcome'),
+      choice: this.$t('message.choice')
     }
   }
 }

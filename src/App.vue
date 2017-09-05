@@ -1,12 +1,18 @@
 <template>
   <div id="app">
+    <lang></lang>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import Lang from './components/Lang/Lang'
+
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    Lang
+  }
 }
 </script>
 
