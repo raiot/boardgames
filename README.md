@@ -40,6 +40,8 @@ or directly in your script tag
 
 ``` this.$t('message.{your_translation_name}) ``` 
 
+Vuei18n documentation can be found [here](http://kazupon.github.io/vue-i18n/en/)
+
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 Made with ♥ by René Durazo ([@rene_du](https://twitter.com/rene_du))
