@@ -13,7 +13,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/game/{id}/{name}',
+      path: '/game/:id/:name',
       name: 'Game',
       component: Game
     }
